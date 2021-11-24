@@ -17,18 +17,53 @@
         android:paddingTop="@dimen/_10sdp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:fontFamily="@font/manrope_bold"
         android:textColor="@color/ColorWhite" />
     <SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10sdp"
+        android:searchIcon="@drawable/ic_main_search_24"
+        android:background="@drawable/background"
         app:layout_constraintTop_toBottomOf="@id/test1"
         app:layout_constraintEnd_toStartOf="parent"
-        android:id="@+id/search_view"
-        >
-    </SearchView>
-
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/search_view"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/search_view"
+        app:layout_constraintEnd_toStartOf="parent"
+        android:id="@+id/recycler_view"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_add_24"
+            app:tint="@color/ColorWhite"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_copy_content_24"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:tint="@color/ColorWhite"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_edit_pin_note_24"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            app:tint="@color/ColorWhite"/>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
