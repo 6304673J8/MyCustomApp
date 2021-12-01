@@ -1,4 +1,7 @@
 package com.example.georgheapp.main
+import android.os.Bundle
+import android.view.View
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.google.android.material.bottomappbar.BottomAppBar
 
 abstract class BottomAppBarListenerBehavior : BottomAppBar.Behavior() {
@@ -25,7 +28,11 @@ abstract class BottomAppBarListenerBehavior : BottomAppBar.Behavior() {
         onSlideUp()
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        val params = bottom_app_bar.layoutParams as CoordinatorLayout.LayoutParams
+    }
 
 }
 
