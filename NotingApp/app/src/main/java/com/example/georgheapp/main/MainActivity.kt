@@ -1,10 +1,12 @@
-package com.example.georgheapp
+package com.example.georgheapp.main
 
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.georgheapp.R
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

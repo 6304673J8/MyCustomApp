@@ -8,6 +8,9 @@
     <string name="start_file">Edit</string>
     <string name="search_file">Search in notes</string>
     <string name="search_main">Search</string>
+    <string name="sort">Sort Files By</string>
+    <string name="add_manual">Add External File</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="test_text">Hello Android World</string>
