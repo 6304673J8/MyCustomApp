@@ -2,10 +2,25 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+
+    <item
+        android:id="@+id/app_bar_menu"
+        android:icon="@drawable/ic_slide_menu_24"
+        app:showAsAction="ifRoom"
+        android:title="@string/about" />
+
     <item
         android:id="@+id/app_bar_search"
         android:icon="@drawable/ic_search_black_24dp"
         app:showAsAction="always"
         android:title="Search"
-        app:actionViewClass="android.widget.SearchView" />
+        app:actionViewClass="android.widget.SearchView"/>
+
+    <item android:title="New note"
+        android:id="@+id/app_bar_add_note"
+        />
+
+    <item android:title="New template"
+        android:id="@+id/app_bar_add_template"
+        />
 </menu>
