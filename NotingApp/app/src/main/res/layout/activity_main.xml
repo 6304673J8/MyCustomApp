@@ -7,53 +7,6 @@
     android:background="@color/colorPrimaryDark"
     tools:context=".main.MainActivity">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_30sdp"
-                android:textSize="@dimen/_18ssp"
-                android:text="@string/test_text"/><TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_30sdp"
-            android:textSize="@dimen/_18ssp"
-            android:text="@string/test_text"/><TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_30sdp"
-            android:textSize="@dimen/_18ssp"
-            android:text="@string/test_text"/><TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_30sdp"
-            android:textSize="@dimen/_18ssp"
-            android:text="@string/test_text"/><TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_30sdp"
-            android:textSize="@dimen/_18ssp"
-            android:text="@string/test_text"/><TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_30sdp"
-            android:textSize="@dimen/_18ssp"
-            android:text="@string/test_text"/><TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_30sdp"
-            android:textSize="@dimen/_18ssp"
-            android:text="@string/test_text"/>
-
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"
         android:layout_width="match_parent"
@@ -116,15 +69,5 @@
         android:background="@color/colorAccent"
         android:tint="@color/ColorWhite"
         app:layout_anchor="@id/bottom_app_bar" />
-    <!--android:id="@+id/fab_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_main_button_edit_24"
-        app:maxImageSize="@dimen/_30sdp"
-        android:background="@color/colorAccent"
-        android:contentDescription="@string/edit"
-        android:tint="@color/ColorWhite"
-        app:layout_anchor="@id/bottom_app_bar" /> -->
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
