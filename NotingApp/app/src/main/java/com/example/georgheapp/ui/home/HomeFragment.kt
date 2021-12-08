@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(param2: String) =
             HomeFragment().apply {
                 arguments = Bundle().apply {
 

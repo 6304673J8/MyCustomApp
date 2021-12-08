@@ -14,6 +14,7 @@ abstract class BottomAppBarListenerBehavior : BottomAppBar.Behavior() {
     abstract fun onSlideDown()
     abstract fun onSlideUp()
 
+
     override fun slideDown(child: BottomAppBar) {
         super.slideDown(child)
         if (currentState == State.SCROLL_DOWN) return
@@ -27,12 +28,5 @@ abstract class BottomAppBarListenerBehavior : BottomAppBar.Behavior() {
         currentState = State.SCROLL_UP
         onSlideUp()
     }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val params = bottom_app_bar.layoutParams as CoordinatorLayout.LayoutParams
-    }
-
 }
 
