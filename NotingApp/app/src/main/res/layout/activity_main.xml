@@ -105,12 +105,12 @@
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_edit"
+        android:id="@+id/fab_new_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/edit"
         android:enabled="false"
-        android:src="@drawable/ic_main_button_edit_24"
+        android:src="@drawable/ic_main_button_add_24"
         app:maxImageSize="@dimen/_30sdp"
         app:fabSize="normal"
         android:background="@color/colorAccent"

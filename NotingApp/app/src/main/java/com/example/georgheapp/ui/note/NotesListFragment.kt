@@ -1,4 +1,4 @@
-package com.example.georgheapp.ui.home
+package com.example.georgheapp.ui.note
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.georgheapp.R
 
-class HomeFragment : Fragment() {
+class NotesListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -20,18 +20,20 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return inflater.inflate(R.layout.fragment_new_note, container, false)
     }
 
     companion object {
         @JvmStatic
         fun newInstance(param2: String) =
-            HomeFragment().apply {
+            NotesListFragment().apply {
                 arguments = Bundle().apply {
 
                 }
             }
     }
 
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
 }

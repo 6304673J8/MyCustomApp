@@ -7,7 +7,7 @@
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/dancingscript_regular" />
+        android:font="@font/dancing_script_regular" />
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
