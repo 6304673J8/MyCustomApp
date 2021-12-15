@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.example.georgheapp.R
 
 class NotesListFragment : Fragment() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -37,4 +38,5 @@ class NotesListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
     }
+
 }
