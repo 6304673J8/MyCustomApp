@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
-
     <item
         android:id="@+id/app_bar_menu"
-        android:icon="@drawable/ic_slide_menu_24"
-        app:showAsAction="ifRoom"
-        android:title="@string/about" />
-
+        android:layout_weight="1"
+        android:title="@string/settings"
+        android:icon="@drawable/ic_baseline_sort_24"
+        android:background="?android:selectableItemBackground"/>
+    <item
+        android:id="@+id/app_bar_add_template"
+        android:layout_weight="1"
+        android:title="@string/new_file"
+        android:icon="@drawable/ic_add_manual_24"
+        android:background="?android:selectableItemBackground"/>
     <item
         android:id="@+id/app_bar_search"
+        android:layout_weight="1"
+        android:title="@string/search_main"
         android:icon="@drawable/ic_search_black_24dp"
-        app:showAsAction="always"
-        android:title="Search"
+        android:background="?android:selectableItemBackground"
         app:actionViewClass="android.widget.SearchView"/>
-
-    <item android:title="New note"
-        android:id="@+id/app_bar_add_note"
-        />
-
-    <item android:title="New template"
-        android:id="@+id/app_bar_add_template"
-        />
 </menu>

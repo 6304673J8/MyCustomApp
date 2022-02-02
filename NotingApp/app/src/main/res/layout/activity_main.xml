@@ -7,6 +7,18 @@
     android:background="@color/colorPrimaryDark"
     tools:context=".main.MainActivity">
 
+    <fragment
+        android:id="@+id/nav_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/bottom_app_bar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/nav_bottom_graph" />
+
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"
         android:layout_width="match_parent"
@@ -17,14 +29,13 @@
         app:hideOnScroll="true"
         app:fabCradleMargin="@dimen/_8sdp"
         app:fabCradleRoundedCornerRadius="@dimen/_32sdp"
-        app:fabAnimationMode="slide" >
+        app:fabAnimationMode="slide">
         <!--app:menu="@menu/bottom_app_bar_menu />"-->
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ImageButton
-                android:id="@+id/sort_button"
+                android:id="@+id/newNoteFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -33,7 +44,7 @@
                 android:saveEnabled="false"
                 android:src="@drawable/ic_baseline_sort_24" />
             <ImageButton
-                android:id="@+id/add_button"
+                android:id="@+id/settingsFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -42,7 +53,7 @@
                 android:saveEnabled="false"
                 android:src="@drawable/ic_add_manual_24" />
             <ImageButton
-                android:id="@+id/search_button"
+                android:id="@+id/notesListFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
