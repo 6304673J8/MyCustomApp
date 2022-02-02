@@ -18,8 +18,4 @@
         <item name="android:editTextColor">@color/ColorWhite</item>
         <item name="android:textColorHint">@color/ColorText</item>
     </style>
-
-
-
-
 </resources>

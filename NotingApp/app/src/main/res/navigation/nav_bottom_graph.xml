@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_bottom_graph"
+    app:startDestination="@id/homeBackgroundFragment">
+
+    <fragment
+        android:id="@+id/homeBackgroundFragment"
+        android:name="com.example.georgheapp.main.home.HomeBackgroundFragment"
+        android:label="HomeBackgroundFragment" />
+    <fragment
+        android:id="@+id/newNoteFragment"
+        android:name="com.example.georgheapp.ui.note.NewNoteFragment"
+        android:label="NewNoteFragment" />
+    <fragment
+        android:id="@+id/notesListFragment"
+        android:name="com.example.georgheapp.ui.note.NotesListFragment"
+        android:label="NotesListFragment" />
+</navigation>

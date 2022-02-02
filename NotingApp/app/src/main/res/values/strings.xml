@@ -18,4 +18,6 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="test_text">Hello Android World</string>
+    <string name="bg_welcome_user">Usuario Firebase</string>
+    <string name="bg_welcome_date">dd/mm/yy</string>
 </resources>
