@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
     <FrameLayout
-        android:id="@+id/frame_container"
+        android:id="@+id/frame_containerr"
         android:layout_width="416dp"
         android:layout_height="118dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -14,12 +15,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/standardBackgroundImage"
+            android:id="@+id/standardBackgroundImagee"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="matrix"
-            android:src="@drawable/standard_background">
-        </ImageView>
+            android:clickable="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/standard_background"></ImageView>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -41,7 +42,14 @@
                 android:text="@string/bg_welcome_date"
                 android:textColor="@android:color/holo_orange_dark"
                 android:textSize="30dp" />
-        </LinearLayout>
 
+        </LinearLayout>
     </FrameLayout>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/frame_containerr"/>
+    <!-- Linear progress indicator -->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

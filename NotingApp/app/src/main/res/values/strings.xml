@@ -20,4 +20,6 @@
     <string name="test_text">Hello Android World</string>
     <string name="bg_welcome_user">Usuario Firebase</string>
     <string name="bg_welcome_date">dd/mm/yy</string>
+    <string name="background">Add Picture</string>
+    <string name="bg_changeBG">Exchangeable Background By Pressing Image</string>
 </resources>

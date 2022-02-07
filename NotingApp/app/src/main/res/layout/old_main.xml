@@ -7,7 +7,47 @@
     android:background="@color/colorPrimaryDark"
     tools:context=".main.MainActivity">
 
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="416dp"
+        android:layout_height="118dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/standardBackgroundImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/bg_changeBG"
+            android:scaleType="centerCrop"
+            android:src="@drawable/standard_background"></ImageView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bg_welcome_user"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bg_welcome_date"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+    </FrameLayout>
     <!--<fragment
         android:id="@+id/nav_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -20,73 +60,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav_bottom_graph" />-->
 
-    <androidx.core.widget.NestedScrollView
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/loadingMainBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-        <!-- Your scrolling content -->
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_height="match_parent"
-            android:layout_width="match_parent">
+        app:layout_anchor="@+id/frame_container"
+        app:layout_anchorGravity="bottom|center"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_view" />
 
-            <!-- body of constraint layout -->
-            <!-- 1 BG Customizable & Linear Progress Indicator-->
-            <FrameLayout
-                android:id="@+id/frame_container"
-                android:layout_width="416dp"
-                android:layout_height="118dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <ImageView
-                    android:id="@+id/standardBackgroundImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:contentDescription="@string/bg_changeBG"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/standard_background"></ImageView>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/bg_welcome_user"
-                        android:textColor="#FFFFFF"
-                        android:textSize="30sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/bg_welcome_date"
-                        android:textColor="@android:color/holo_orange_dark"
-                        android:textSize="30sp" />
-
-                </LinearLayout>
-            </FrameLayout>
-            <com.google.android.material.progressindicator.LinearProgressIndicator
-                android:id="@+id/loadingMainBar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_anchor="@+id/frame_container"
-                app:layout_anchorGravity="bottom|center"
-                app:layout_constraintTop_toBottomOf="@+id/frame_container" />
-
-            <!-- 2 Lists Note -->
-
-            <!--<androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>-->
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@+id/loadingMainBar"
+        app:layout_anchorGravity="bottom|center"
+        app:layout_constraintTop_toBottomOf="@id/loadingMainBar" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_app_bar"

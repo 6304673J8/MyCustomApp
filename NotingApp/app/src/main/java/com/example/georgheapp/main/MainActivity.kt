@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         //Initialize the bottom navigation view
         //create bottom navigation view object
         val bottomNavigationView = findViewById<BottomAppBar>(R.id.bottom_app_bar)
-        val navController = findNavController(R.id.nav_fragment)
-        bottomNavigationView.setupWithNavController(navController)
+        //val navController = findNavController(R.id.nav_fragment)
+        //bottomNavigationView.setupWithNavController(navController)
     }
 }

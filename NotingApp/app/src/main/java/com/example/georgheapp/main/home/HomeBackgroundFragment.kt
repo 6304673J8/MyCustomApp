@@ -10,18 +10,29 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.launch
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.georgheapp.databinding.ActivityMainBinding
 import com.example.georgheapp.databinding.FragmentHomeMainBinding
 import com.example.georgheapp.utils.toast
 
 class HomeBackgroundFragment : Fragment() {
-    lateinit var binding: FragmentHomeMainBinding
+    //lateinit var binding: FragmentHomeMainBinding
+    lateinit var binding: ActivityMainBinding
+    /*override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return FragmentHomeMainBinding.inflate(inflater).also {
+            binding = it
+        }.root
+    }*/
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return FragmentHomeMainBinding.inflate(inflater).also {
+        return ActivityMainBinding.inflate(inflater).also {
             binding = it
         }.root
     }
@@ -52,10 +63,10 @@ class HomeBackgroundFragment : Fragment() {
         }
 
 
-    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.requestPermissionsButton.setOnClickListener {
+        binding.standardBackgroundImage.setOnClickListener {
             // IMPORTANT: abans de tot això, recorda declarar el permís al manifest o el permís es
             // denegarà automàticament
 
@@ -64,14 +75,13 @@ class HomeBackgroundFragment : Fragment() {
             if (ContextCompat.checkSelfPermission(ctx, Manifest.permission.CAMERA)
                 == PackageManager.PERMISSION_GRANTED
             ) {
-                // Ja tinc el permís
+                // Permission Obtained
                 ctx.toast("I can use camera because I already have the permission :D")
                 cameraLauncher.launch()
             } else {
-                // No tinc el permís i l'he de sol·licitar
+                // No Permission Granted, Ask For It
                 requestPermissionLauncher.launch(Manifest.permission.CAMERA)
             }
-
         }
-    }*/
+    }
 }
