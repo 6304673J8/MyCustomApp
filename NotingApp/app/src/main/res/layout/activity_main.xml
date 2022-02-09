@@ -4,10 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
     tools:context=".main.MainActivity">
-
-
     <!--<fragment
         android:id="@+id/nav_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -21,38 +18,39 @@
         app:navGraph="@navigation/nav_bottom_graph" />-->
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
         <!-- Your scrolling content -->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_height="match_parent"
-            android:layout_width="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <!-- body of constraint layout -->
             <!-- 1 BG Customizable & Linear Progress Indicator-->
             <FrameLayout
                 android:id="@+id/frame_container"
-                android:layout_width="416dp"
+                android:layout_width="match_parent"
                 android:layout_height="118dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/standardBackgroundImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:clickable="true"
-                    android:focusable="true"
                     android:contentDescription="@string/bg_changeBG"
+                    android:focusable="true"
                     android:scaleType="centerCrop"
                     android:src="@drawable/standard_background"></ImageView>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="20dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -71,6 +69,7 @@
 
                 </LinearLayout>
             </FrameLayout>
+
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/loadingMainBar"
                 android:layout_width="match_parent"
@@ -78,9 +77,33 @@
                 app:layout_anchor="@+id/frame_container"
                 app:layout_anchorGravity="bottom|center"
                 app:layout_constraintTop_toBottomOf="@+id/frame_container" />
-
             <!-- 2 Lists Note -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/loadingMainBar">
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:background="@drawable/blackhole"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    app:layoutManager="LinearLayoutManager" />
+            </LinearLayout>
+            <!--<GridView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/standard_background"
+                app:layout_constraintTop_toBottomOf="@id/loadingMainBar">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </GridView>-->
+            <!-- 2 Lists Note -->
             <!--<androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
@@ -142,16 +165,14 @@
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_new_note"
+        android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
+        android:background="@color/ColorAccent"
         android:contentDescription="@string/edit"
-        android:enabled="false"
         android:src="@drawable/ic_main_button_add_24"
         android:tint="@color/ColorWhite"
         app:fabSize="normal"
         app:layout_anchor="@id/bottom_app_bar"
         app:maxImageSize="@dimen/_30sdp" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

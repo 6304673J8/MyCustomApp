@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
     tools:context=".main.MainActivity">
 
     <FrameLayout
@@ -133,7 +132,6 @@
         android:id="@+id/fab_new_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
         android:contentDescription="@string/edit"
         android:enabled="false"
         android:src="@drawable/ic_main_button_add_24"

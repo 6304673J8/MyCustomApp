@@ -38,10 +38,15 @@ class DragAndDropActivity : AppCompatActivity() {
             binding.chipGroup1.addView(chip)
         }
         binding.chipGroup2.setOnDragListener(dragListener)
+        binding.chipGroup1.setOnDragListener(dragListener)
+
+
+        binding.removingIcon.alpha = 0f
+        binding.removingIcon.setOnDragListener(removeDragListener)
     }
 
     private val dragListener = View.OnDragListener { objectiveView, event ->
-//normal cast        val movingChip = event.localState as Chip
+        //normal cast  val movingChip = event.localState as Chip
         val movingChip = Chip::class.safeCast(event.localState) ?: return@OnDragListener false
 
         when(event.action) {
@@ -65,6 +70,38 @@ class DragAndDropActivity : AppCompatActivity() {
             DragEvent.ACTION_DRAG_ENDED -> {
                 movingChip.setTextColor(getColor(R.color.black))
                 movingChip.chipStrokeWidth = 0f
+            }
+        }
+        true
+    }
+
+    private val removeDragListener = View.OnDragListener { objectiveView, event ->
+//normal cast        val movingChip = event.localState as Chip
+        val movingChip = Chip::class.safeCast(event.localState) ?: return@OnDragListener false
+
+        when(event.action) {
+            DragEvent.ACTION_DRAG_STARTED -> {
+                binding.removingIcon.alpha = 1f
+                //movingChip.setBackgroundColor(getColor(R.color.transparent))
+            }
+            DragEvent.ACTION_DRAG_ENTERED -> {
+                binding.removingIcon.animate().scaleX(1.6f).scaleY(1.6f)
+                //movingChip.setBackgroundColor(getColor(R.color.transparent))
+            }
+
+            DragEvent.ACTION_DRAG_EXITED -> {
+                binding.removingIcon.animate().scaleX(1f).scaleY(1f).rotation(1.4f)
+            //movingChip.setBackgroundColor(getColor(R.color.transparent))
+        }
+            DragEvent.ACTION_DROP -> {
+                val parent = ChipGroup::class.safeCast(movingChip.parent)
+                parent?.removeView(movingChip)
+                //binding.chipGroup1.removeView(movingChip)
+                //binding.chipGroup2.addView(movingChip)
+            }
+
+            DragEvent.ACTION_DRAG_ENDED -> {
+                binding.removingIcon.alpha = 0f
             }
         }
         true

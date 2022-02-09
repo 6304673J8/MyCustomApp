@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
     tools:context=".main.MainActivity">
 
     <ImageView
@@ -41,7 +40,7 @@
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        android:textColor="@color/ColorText"
-       android:textSize="@dimen/_16ssp"
+       android:textSize="@dimen/_24ssp"
        android:fontFamily="@font/dancing_script_bold"
        android:textColorHint="@color/ColorText"
        android:hint="@string/notes_title"
@@ -69,7 +68,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/_10sdp"
         android:textColor="@color/ColorText"
-        android:textSize="@dimen/_10ssp"
+        android:textSize="@dimen/_16ssp"
         android:fontFamily="@font/dancing_script_regular"
         android:textColorHint="@color/ColorGray"
         android:hint="@string/notes_sub_title"
@@ -89,7 +88,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/ColorText"
         android:inputType="textMultiLine"
-        android:textSize="@dimen/_12ssp"
+        android:textSize="@dimen/_20ssp"
         android:fontFamily="@font/dancing_script_regular"
         android:textColorHint="@color/ColorText"
         android:hint="@string/notes_desc" />

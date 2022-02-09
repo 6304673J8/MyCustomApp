@@ -22,4 +22,6 @@
     <string name="bg_welcome_date">dd/mm/yy</string>
     <string name="background">Add Picture</string>
     <string name="bg_changeBG">Exchangeable Background By Pressing Image</string>
+    <string name="goBackInfo">This button brings you back to the main activity</string>
+    <string name="saveNoteInfo">This button serves to save our current changes in our note</string>
 </resources>

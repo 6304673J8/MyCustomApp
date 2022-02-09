@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GeorgheApp">
+        <activity android:name=".addNote.AddNoteActivity"></activity>
         <activity
             android:name=".main.MainActivity"
             android:exported="true"
