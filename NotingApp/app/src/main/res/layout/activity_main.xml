@@ -16,7 +16,11 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav_bottom_graph" />-->
-
+    <!--<data>
+        <variable
+            name="hasPlantings"
+            type="boolean" />
+    </data>-->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
@@ -78,7 +82,54 @@
                 app:layout_anchorGravity="bottom|center"
                 app:layout_constraintTop_toBottomOf="@+id/frame_container" />
             <!-- 2 Lists Note -->
-            <LinearLayout
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/loadingMainBar">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/notes_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:layout_marginStart="@dimen/card_side_margin"
+                    android:layout_marginEnd="@dimen/card_side_margin"
+                    android:layout_marginTop="@dimen/margin_normal"/>
+                    <!--app:isGone="@{!hasPlantings}"
+                    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                    app:spanCount="@integer/grid_columns"/>
+                    tools:listitem="@layout/list_item_note_memo"-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <!--app:isGone="@{hasPlantings}"-->
+
+                    <TextView
+                        android:id="@+id/empty_garden"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceHeadline5" />
+                        <!--android:text="@string/garden_empty"-->
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/add_plant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="?attr/colorPrimary"
+                        app:backgroundTint="?attr/colorOnPrimary"
+                        />
+                        <!--android:text="@string/add_plant"-->
+                        <!--app:shapeAppearance="@style/ShapeAppearance.Sunflower.Button.Add"-->
+
+                </LinearLayout>
+
+            </FrameLayout>
+            <!--<LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +143,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     app:layoutManager="LinearLayoutManager" />
-            </LinearLayout>
+            </LinearLayout>-->
             <!--<GridView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

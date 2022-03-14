@@ -1,37 +1,30 @@
 package com.example.georgheapp.data
 
+import androidx.annotation.DrawableRes
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.io.Serializable
+import java.util.Calendar
+import java.util.Calendar.DAY_OF_YEAR
 
-@Entity(tableName = "Notes")
+@Entity(tableName = "notes")
 data class Note (
-    @PrimaryKey(autoGenerate = true)
-    var id:Int,
+    @PrimaryKey @ColumnInfo(name = "id") val noteId: String,
+    //val id: Long,
+    val title: String,
+    val subtitle: String,
+    val subtitleType: String,
+    val content: String,
+    val updateInterval: Int = 7,
+    @DrawableRes
+    val image: Int?
+    ){
+    /**
+     * Determines if the note should be updated.  Returns true if [since]'s date > date of last
+     * watering + watering Interval; false otherwise.
+     */
+    fun shouldBeUpdated(since: Calendar, lastUpdatingDate: Calendar) =
+        since > lastUpdatingDate.apply { add(Calendar.DAY_OF_YEAR, updateInterval) }
 
-    @ColumnInfo(name = "title")
-    var title:String,
-
-    @ColumnInfo(name = "sub_title")
-    var subTitle: String,
-
-    @ColumnInfo(name = "date_time")
-    var dateTime:String,
-
-    @ColumnInfo(name = "note_content")
-    var noteContent:String,
-
-    @ColumnInfo(name = "img_path")
-    var imagePath:String,
-
-    @ColumnInfo(name = "web_link")
-    var webLink:String,
-
-    @ColumnInfo(name = "color")
-    var color:String
-): Serializable {
-    override fun toString(): String {
-        return "$title : $dateTime"
-    }
+    override fun toString() = title
 }

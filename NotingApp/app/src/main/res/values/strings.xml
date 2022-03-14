@@ -24,4 +24,7 @@
     <string name="bg_changeBG">Exchangeable Background By Pressing Image</string>
     <string name="goBackInfo">This button brings you back to the main activity</string>
     <string name="saveNoteInfo">This button serves to save our current changes in our note</string>
+
+    <string name="error_seed_db">Error seeding database</string>
+    <string name="error_seed_db_name">Error seeding database - no valid filename</string>
 </resources>

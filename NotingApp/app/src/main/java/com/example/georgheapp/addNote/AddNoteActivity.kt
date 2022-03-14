@@ -14,6 +14,7 @@ import com.google.android.material.textfield.TextInputEditText
 const val NOTE_TITLE = "title"
 const val NOTE_SUBTITLE = "subtitle"
 const val NOTE_CONTENT = "content"
+//const val NOTE_DATE = "dd, MM, yy, hh:mm:ss"
 const val NOTE_DATE = "EEE, MMM d, ''yy"
 
 class AddNoteActivity : AppCompatActivity() {
@@ -33,13 +34,21 @@ class AddNoteActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.saveNote).setOnClickListener {
             addNote()
         }
+        findViewById<ImageView>(R.id.goBack).setOnClickListener {
+            cancelAddNote()
+        }
         addNoteTitle = findViewById(R.id.add_note_title)
         addNoteSubTitle = findViewById(R.id.add_note_subtitle)
         addNoteContent = findViewById(R.id.add_note_content)
 
         /*val currentDateTimeString = DateFormat.getDateTimeInstance().format(Date())
         textView.setText(currentDateTimeString)
-        addNoteDate = findViewById(R.id.add_note_date)*/
+        addNoteDate = findViewById(R.id.add_note_date)
+
+        test -- val time = SimpleDateFormat("dd/MM/yy hh:mm:ss")
+        currentDate = time.format(())
+
+        */
     }
 
     private fun addNote() {
@@ -47,7 +56,8 @@ class AddNoteActivity : AppCompatActivity() {
 
         // In case the user doesn't input anything at all then the result is set to cancelled.
         if (addNoteTitle.text.isNullOrEmpty() && addNoteSubTitle.text.isNullOrEmpty()
-                                                && addNoteContent.text.isNullOrEmpty()) {
+            && addNoteContent.text.isNullOrEmpty()
+        ) {
             setResult(Activity.RESULT_CANCELED, resultIntent)
         } else {
             val title = addNoteTitle.text.toString()
@@ -61,6 +71,12 @@ class AddNoteActivity : AppCompatActivity() {
             //resultIntent.putExtra(NOTE_DATE, date)
             setResult(Activity.RESULT_OK, resultIntent)
         }
+        finish()
+    }
+
+    private fun cancelAddNote() {
+        val resultIntent = Intent()
+        setResult(Activity.RESULT_CANCELED, resultIntent)
         finish()
     }
 }

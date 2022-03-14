@@ -15,6 +15,8 @@
         android:layout_marginBottom="@dimen/_10sdp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:clickable="true"
+        android:focusable="true"
         android:contentDescription="@string/goBackInfo"
         android:src="@drawable/ic_arrow_back_24"
         app:tint="@color/ColorDarkGreenNote" />
