@@ -31,7 +31,7 @@ class DataSource(resources: Resources) {
         }
     }
 
-    /* Returns note given an ID. */
+    // Returns note given an ID.
     fun getNoteForId(id: Long): Note? {
         notesLiveData.value?.let { notes ->
             return notes.firstOrNull{ it.id == id}
@@ -43,7 +43,7 @@ class DataSource(resources: Resources) {
         return notesLiveData
     }
 
-    /* Returns a random note asset for notes that are added. */
+    // Returns a random note asset for notes that are added.
     fun getRandomNoteImageAsset(): Int? {
         val randomNumber = (initialNoteList.indices).random()
         return initialNoteList[randomNumber].image

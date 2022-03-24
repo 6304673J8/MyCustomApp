@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.example.georgheapp.data.AppDatabase
 import com.example.georgheapp.data.Note
 import com.google.common.reflect.TypeToken
 import com.google.gson.Gson
@@ -26,8 +25,11 @@ class SeedDatabaseWorker (
                        //Gson is used to serialize and deserialize Java objects to JSON
                        val noteList: List<Note> = Gson().fromJson(jsonReader, noteType)
 
-                       val database = AppDatabase.getInstance(applicationContext)
-                       database.noteDao().insertAll(noteList)
+                       /**
+                        * After Implementing AppDatabase The Notes Will Be Inserted
+                        */
+                       // val database = AppDatabase.getInstance(applicationContext)
+                       // database.noteDao().insertAll(noteList)
 
                        Result.success()
                    }

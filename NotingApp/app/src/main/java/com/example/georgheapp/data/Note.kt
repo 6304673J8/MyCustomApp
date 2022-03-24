@@ -10,7 +10,7 @@ import java.util.Calendar.DAY_OF_YEAR
 @Entity(tableName = "notes")
 data class Note (
     @PrimaryKey @ColumnInfo(name = "id") val noteId: String,
-    //val id: Long,
+    val id: Long,
     val title: String,
     val subtitle: String,
     val subtitleType: String,
@@ -19,6 +19,7 @@ data class Note (
     @DrawableRes
     val image: Int?
     ){
+
     /**
      * Determines if the note should be updated.  Returns true if [since]'s date > date of last
      * watering + watering Interval; false otherwise.

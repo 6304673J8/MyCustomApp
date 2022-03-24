@@ -1,0 +1,27 @@
+Index: NotingApp/app/src/main/java/com/example/georgheapp/data/AppDatabase.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.georgheapp.data\r\n\r\nimport android.content.Context\r\nimport androidx.room.Database\r\nimport androidx.room.Room\r\nimport androidx.room.RoomDatabase\r\nimport androidx.room.TypeConverters\r\nimport androidx.sqlite.db.SupportSQLiteDatabase\r\nimport androidx.work.OneTimeWorkRequestBuilder\r\nimport androidx.work.WorkManager\r\nimport androidx.work.workDataOf\r\nimport com.example.georgheapp.utils.DATABASE_NAME\r\nimport com.example.georgheapp.utils.NOTE_DATA_FILENAME\r\nimport com.example.georgheapp.workers.SeedDatabaseWorker\r\nimport com.example.georgheapp.workers.SeedDatabaseWorker.Companion.KEY_FILENAME\r\n\r\n/**\r\n * The Room database for this app\r\n */\r\n@Database(entities = [NoteMemo::class, Note::class], version = 1, exportSchema = false)\r\n@TypeConverters(Converters::class)\r\nabstract class AppDatabase : RoomDatabase() {\r\n    abstract fun noteMemoDao(): NoteMemoDao\r\n    abstract fun noteDao(): NoteDao\r\n\r\n    companion object {\r\n        // Singleton instantiation\r\n        @Volatile private var instance: AppDatabase? = null\r\n\r\n        fun getInstance(context: Context): AppDatabase{\r\n            return instance ?: synchronized(this) {\r\n                instance ?: buildDatabase(context).also { instance = it }\r\n            }\r\n        }\r\n\r\n        // Create and pre-populate the database. See this article for more details:\r\n        private fun buildDatabase(context: Context): AppDatabase {\r\n            return Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)\r\n                .addCallback(\r\n                    object : RoomDatabase.Callback(){\r\n                        override fun onCreate(db: SupportSQLiteDatabase) {\r\n                            super.onCreate(db)\r\n                            val request = OneTimeWorkRequestBuilder<SeedDatabaseWorker>()\r\n                                .setInputData(workDataOf(KEY_FILENAME to NOTE_DATA_FILENAME))\r\n                                .build()\r\n                            WorkManager.getInstance(context).enqueue(request)\r\n                        }\r\n                    }\r\n                )\r\n                .build()\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- NotingApp/app/src/main/java/com/example/georgheapp/data/AppDatabase.kt	(revision 783bc1ed5cc26bca5e04a989e5bbe8c06b945207)
++++ NotingApp/app/src/main/java/com/example/georgheapp/data/AppDatabase.kt	(date 1648142765039)
+@@ -34,7 +34,7 @@
+         }
+ 
+         // Create and pre-populate the database. See this article for more details:
+-        private fun buildDatabase(context: Context): AppDatabase {
++        /*private fun buildDatabase(context: Context): AppDatabase {
+             return Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
+                 .addCallback(
+                     object : RoomDatabase.Callback(){
+@@ -48,6 +48,6 @@
+                     }
+                 )
+                 .build()
+-        }
++        }*/
+     }
+ }
+\ No newline at end of file
