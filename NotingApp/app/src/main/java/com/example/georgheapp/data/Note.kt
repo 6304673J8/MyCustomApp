@@ -21,8 +21,8 @@ data class Note (
     ){
 
     /**
-     * Determines if the note should be updated.  Returns true if [since]'s date > date of last
-     * watering + watering Interval; false otherwise.
+     * Determines if the note should be updated.  Returns true if [since]'s date > date of NoteMemo
+     * Interval; false otherwise.
      */
     fun shouldBeUpdated(since: Calendar, lastUpdatingDate: Calendar) =
         since > lastUpdatingDate.apply { add(Calendar.DAY_OF_YEAR, updateInterval) }

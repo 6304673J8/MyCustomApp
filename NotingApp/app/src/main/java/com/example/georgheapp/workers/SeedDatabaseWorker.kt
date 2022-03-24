@@ -11,6 +11,7 @@ import com.google.gson.stream.JsonReader
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+//JSON Intepreter, TODO Database
 class SeedDatabaseWorker (
     context: Context,
     workerParams: WorkerParameters

@@ -11,21 +11,11 @@ import androidx.activity.result.launch
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.georgheapp.databinding.ActivityMainBinding
-import com.example.georgheapp.databinding.FragmentHomeMainBinding
 import com.example.georgheapp.utils.toast
 
 class HomeBackgroundFragment : Fragment() {
     //lateinit var binding: FragmentHomeMainBinding
     lateinit var binding: ActivityMainBinding
-    /*override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return FragmentHomeMainBinding.inflate(inflater).also {
-            binding = it
-        }.root
-    }*/
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,11 +43,7 @@ class HomeBackgroundFragment : Fragment() {
                 context?.toast("Now I can use camera :)")
                 cameraLauncher.launch()
             } else {
-                // Explain to the user that the feature is unavailable because the
-                // features requires a permission that the user has denied. At the
-                // same time, respect the user's decision. Don't link to system
-                // settings in an effort to convince the user to change their
-                // decision.
+                // Explain to the user that the feature is unavailable until permission given.
                 context?.toast("User has denied the permission :(")
             }
         }
@@ -67,8 +53,6 @@ class HomeBackgroundFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.standardBackgroundImage.setOnClickListener {
-            // IMPORTANT: abans de tot això, recorda declarar el permís al manifest o el permís es
-            // denegarà automàticament
 
             val ctx = context ?: return@setOnClickListener
 

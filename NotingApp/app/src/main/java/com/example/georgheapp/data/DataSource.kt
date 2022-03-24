@@ -9,7 +9,7 @@ class DataSource(resources: Resources) {
     private val initialNoteList = noteList(resources)
     private val notesLiveData = MutableLiveData(initialNoteList)
 
-    /* Adds note to liveData and posts value. */
+    // Adds note to liveData and posts value.
     fun addNote(note: Note) {
         val currentList = notesLiveData.value
         if (currentList == null) {
@@ -21,7 +21,7 @@ class DataSource(resources: Resources) {
         }
     }
 
-    /* Removes note from liveData and posts value. */
+    // Removes note from liveData and posts value.
     fun removeNote(note: Note) {
         val currentList = notesLiveData.value
         if (currentList != null) {
