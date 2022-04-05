@@ -1,8 +1,6 @@
 package com.example.georgheapp.data
 
-import android.content.res.Resources
+object Notes : ArrayList<Note>() {
+    const val NOTES_FILENAME = "notesInternalData.dat"
 
-//Testing If Notes Can Be Displayed On MainMenu
-fun noteList(resources: Resources): List<Note> {
-    return listOf()
 }

@@ -2,9 +2,6 @@ package com.example.georgheapp.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
-import com.example.georgheapp.data.NoteAndNoteMemos
-import com.example.georgheapp.data.NoteMemoRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
