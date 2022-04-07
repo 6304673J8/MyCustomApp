@@ -27,6 +27,9 @@
         <activity
             android:name=".addNote.AddNoteActivity"
             android:exported="false" />
+        <activity
+            android:name=".data.NoteEditActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

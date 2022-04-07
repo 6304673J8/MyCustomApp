@@ -1,10 +1,14 @@
 package com.example.georgheapp.data
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
+import com.example.georgheapp.R
 import com.example.georgheapp.databinding.ActivityNoteEditBinding
 import java.io.FileOutputStream
 import java.io.ObjectOutputStream
@@ -22,6 +26,10 @@ class NoteEditActivity : AppCompatActivity(){
 
         binding = ActivityNoteEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        findViewById<ImageView>(R.id.imgBack).setOnClickListener {
+            cancelAddNote()
+        }
 
         val noteId = intent.extras?.getInt(INTENT_EXTRA_NOTE_ID)
             ?: return // leave it empty if no extra passed
@@ -53,6 +61,12 @@ class NoteEditActivity : AppCompatActivity(){
             binding.noteContentInput.setText(p.content)
             //binding.noteDateInput.setText(p.date_time)
         }
+    }
+
+    private fun cancelAddNote() {
+        val resultIntent = Intent()
+        setResult(Activity.RESULT_CANCELED, resultIntent)
+        finish()
     }
 
     fun a() {
