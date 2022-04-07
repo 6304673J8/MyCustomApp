@@ -1,4 +1,4 @@
-package com.example.georgheapp.main
+package com.example.georgheapp.ui.main
 
 // TODO-Animation For FAB Button On Clicked
 interface FabButtonClick {

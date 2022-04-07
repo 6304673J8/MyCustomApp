@@ -1,7 +1,4 @@
-package com.example.georgheapp.main
-import android.os.Bundle
-import android.view.View
-import androidx.coordinatorlayout.widget.CoordinatorLayout
+package com.example.georgheapp.ui.main
 import com.google.android.material.bottomappbar.BottomAppBar
 
 abstract class BottomAppBarListenerBehavior : BottomAppBar.Behavior() {

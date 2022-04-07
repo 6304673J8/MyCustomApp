@@ -3,11 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".main.MainActivity">
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/editBar"
+        android:id="@+id/linearLayoutList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/ColorDarkBackground"
@@ -38,38 +37,55 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/test1"
+        android:id="@+id/listTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/manrope_bold"
         android:paddingStart="@dimen/_10sdp"
         android:paddingTop="@dimen/_10sdp"
         android:text="@string/notes"
-        android:textColor="@color/ColorWhite"
+        android:textColor="@color/ColorDarkGreenNote"
         android:textSize="@dimen/_20ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editBar" />
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutList" />
 
-    <SearchView
-        android:id="@+id/search_view"
+    <AutoCompleteTextView
+        android:id="@+id/searchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
-        android:background="@drawable/background"
-        android:searchIcon="@drawable/ic_main_search_24"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:drawableLeft="?android:attr/actionModeWebSearchDrawable"
+        android:drawablePadding="10dp"
         android:queryHint="@string/search_file"
+        android:background="@drawable/background"
         android:theme="@style/search"
+        android:minHeight="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/test1" />
+        app:layout_constraintTop_toBottomOf="@id/listTitle" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipsGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/searchBar"
+        app:layout_constraintStart_toStartOf="@+id/searchBar"
+        app:layout_constraintTop_toBottomOf="@+id/searchBar">
+    </com.google.android.material.chip.ChipGroup>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_vieww"
+        android:id="@+id/notes_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_view" />
-
+        android:layout_height="0dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chipsGroup"
+        tools:context=".ui.particles.NotesFragment"
+        tools:listitem="@layout/item_list_note" >
+    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

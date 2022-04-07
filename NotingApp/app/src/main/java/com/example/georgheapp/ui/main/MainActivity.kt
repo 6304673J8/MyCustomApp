@@ -1,26 +1,20 @@
-package com.example.georgheapp.main
+package com.example.georgheapp.ui.main
 
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageButton
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.launch
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
 
 import com.example.georgheapp.R
 import com.example.georgheapp.addNote.AddNoteActivity
 import com.example.georgheapp.databinding.ActivityMainBinding
-import com.example.georgheapp.databinding.FragmentNewNoteBinding
+import com.example.georgheapp.ui.main.notes.NotesListActivity
 import com.example.georgheapp.utils.toast
-import com.google.android.material.bottomappbar.BottomAppBar
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
@@ -64,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.notesListFragment.setOnClickListener { view ->
-            showSnackbar(view, R.string.notesList)
+            startActivity(Intent(this, NotesListActivity::class.java))
         }
 
         binding.fab.setOnClickListener {

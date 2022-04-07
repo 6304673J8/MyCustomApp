@@ -1,4 +1,4 @@
-package com.example.georgheapp.ui.note
+package com.example.georgheapp.addNote
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.georgheapp.R
 
-class NewNoteFragment : Fragment() {
+class NotesListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -26,12 +26,15 @@ class NewNoteFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance(param2: String) =
-            NewNoteFragment().apply {
+            NotesListFragment().apply {
                 arguments = Bundle().apply {
 
                 }
             }
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+    }
 }

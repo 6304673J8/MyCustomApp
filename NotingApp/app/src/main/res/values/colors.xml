@@ -32,5 +32,7 @@
 
     <color name="ColorDarkBackground">#202734</color>
     <color name="ColorFairBackground">#ff7746</color>
+    <color name="note">#4CAF50</color>
+    <color name="reminder">#CDDC39</color>
 
 </resources>

@@ -8,17 +8,17 @@
 
     <fragment
         android:id="@+id/homeBackgroundFragment"
-        android:name="com.example.georgheapp.main.home.HomeBackgroundFragment"
+        android:name="com.example.georgheapp.ui.main.home.HomeBackgroundFragment"
         android:label="HomeBGFragment"
         tools:layout="@layout/fragment_home_main" />
     <fragment
         android:id="@+id/newNoteFragment"
-        android:name="com.example.georgheapp.ui.note.NewNoteFragment"
+        android:name="com.example.georgheapp.addNote.NewNoteFragment"
         android:label="NewNoteFragment"
         tools:layout="@layout/fragment_new_note" />
     <fragment
         android:id="@+id/notesListFragment"
-        android:name="com.example.georgheapp.ui.note.NotesListFragment"
+        android:name="com.example.georgheapp.addNote.NotesListFragment"
         android:label="NotesListFragment"
         tools:layout="@layout/fragment_notes_list" />
     <fragment

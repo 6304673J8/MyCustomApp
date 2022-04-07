@@ -1,4 +1,4 @@
-package com.example.georgheapp.main.home
+package com.example.georgheapp.ui.main.home
 
 import android.Manifest
 import android.content.pm.PackageManager
