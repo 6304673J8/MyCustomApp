@@ -5,7 +5,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.TypedValue
+import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
 import com.example.georgheapp.R
@@ -31,28 +34,27 @@ class NoteEditActivity : AppCompatActivity(){
             cancelAddNote()
         }
 
+        findViewById<ImageView>(R.id.imgDone).setOnClickListener {
+            acceptAddNote()
+        }
+
         val noteId = intent.extras?.getInt(INTENT_EXTRA_NOTE_ID)
             ?: return // leave it empty if no extra passed
         note = Notes[noteId]
         fillNotesInfo()
     }
 
-    override fun onPause() {
-        super.onPause()
+    //override fun onPause() {
+   //     super.onPause()
 
         // Update class with user input data
-        note?.title = binding.noteTitleInput.text.toString()
+        /*note?.title = binding.noteTitleInput.text.toString()
         note?.subtitle = binding.noteSubtitleInput.text.toString()
         note?.content = binding.noteContentInput.text.toString()
-        //note?.date_time = binding.noteDateInput.text.toString()
+        //note?.date_time = binding.noteDateInput.text.toString()*/
 
-        openFileOutput(Notes.NOTES_FILENAME, MODE_PRIVATE).use { io ->
-            ObjectOutputStream(io).use {
-                // Save the object on the file
-                it.writeObject(Notes)
-            }
-        }
-    }
+        //Here was the new test
+    //}
 
     private fun fillNotesInfo() {
         note?.let { p ->
@@ -67,6 +69,22 @@ class NoteEditActivity : AppCompatActivity(){
         val resultIntent = Intent()
         setResult(Activity.RESULT_CANCELED, resultIntent)
         finish()
+    }
+
+    private fun acceptAddNote() {
+        //val resultIntent = Intent()
+
+        //Added new test
+        //setResult(Activity.RESULT_OK, resultIntent)
+        note?.title = binding.noteTitleInput.text.toString()
+        note?.subtitle = binding.noteSubtitleInput.text.toString()
+        note?.content = binding.noteContentInput.text.toString()
+        openFileOutput(Notes.NOTES_FILENAME, MODE_PRIVATE).use { io ->
+            ObjectOutputStream(io).use {
+                // Save the object on the file
+                it.writeObject(Notes)
+            }
+        }
     }
 
     fun a() {

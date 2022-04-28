@@ -18,8 +18,8 @@
         <!-- Customize your theme here. -->
     </style>
     <style name="ThemeOverlay.search" parent="Theme.GeorgheApp">
-        <item name="android:editTextColor">@color/ColorPrimaryDark</item>
-        <item name="android:textColorHint">@color/ColorLightBlack</item>
+        <item name="android:editTextColor">@color/ColorGray</item>
+        <item name="android:textColorHint">@color/ColorDarkGreenNote</item>
     </style>
 
 </resources>

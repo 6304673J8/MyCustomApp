@@ -30,7 +30,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <!-- body of constraint layout -->
             <!-- 1 BG Customizable & Linear Progress Indicator-->
             <FrameLayout
@@ -86,7 +85,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_constraintTop_toBottomOf="@id/loadingMainBar">
-
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/notes_list"
@@ -159,14 +157,14 @@
                 android:src="@drawable/ic_baseline_sort_24" />
 
             <ImageButton
-                android:id="@+id/newNoteFragment"
+                android:id="@+id/shareAppButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="?android:selectableItemBackground"
                 android:contentDescription="@string/add_manual"
                 android:saveEnabled="false"
-                android:src="@drawable/ic_add_manual_24" />
+                android:src="@drawable/ic_baseline_share_24" />
 
             <ImageButton
                 android:id="@+id/notesListFragment"

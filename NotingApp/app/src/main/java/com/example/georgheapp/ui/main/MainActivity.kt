@@ -53,8 +53,8 @@ class MainActivity : AppCompatActivity() {
             showSnackbar(view, R.string.settingsFragment)
         }
 
-        binding.newNoteFragment.setOnClickListener { view ->
-            showSnackbar(view, R.string.noteCreated)
+        binding.shareAppButton.setOnClickListener { view ->
+            shareOnClick()
         }
 
         binding.notesListFragment.setOnClickListener { view ->
@@ -86,5 +86,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun showSnackbar(view: View, message: Int) {
         Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show()
+    }
+
+    private fun shareOnClick(){
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, "https://drive.google.com/drive/folders/1i3hFtyv7Szg8dOYVJ7L4NFUd9B3AnlK8?usp=sharing")
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
     }
 }
