@@ -42,9 +42,17 @@ android {
         viewBinding true
         dataBinding true
     }
+    sourceSets {
+        main {
+            assets {
+                srcDirs 'src\\main\\assets'
+            }
+        }
+    }
 }
 
 dependencies {
+    implementation 'androidx.preference:preference:1.1.1'
     kapt "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
 

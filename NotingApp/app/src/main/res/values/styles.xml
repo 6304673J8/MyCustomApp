@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Regular">
+        <item name="android:fontFamily">@font/dancing_script_regular</item>
+        <item name="fontFamily">@font/dancing_script_regular</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="Bold">
+        <item name="android:fontFamily">@font/dancing_script_bold</item>
+        <item name="fontFamily">@font/dancing_script_bold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Lobster">
+        <item name="android:fontFamily">@font/lobster_regular</item>
+        <item name="fontFamily">@font/lobster_regular</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+</resources>

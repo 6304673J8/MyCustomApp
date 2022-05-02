@@ -29,16 +29,16 @@ class NotesFragment : Fragment() {
         val retView = binding.root
         val ctx = context ?: return retView.also { activity?.finish() }
 
-        // Init adapter llista de particules
+        // Init adapter list
         binding.notesList.adapter = NoteRecyclerViewAdapter(ctx, notes)
 
-        // Init adapter per fer la findbar
+        // Init adapter searchBar
         binding.searchBar.setOnItemClickListener { parent, _, position, _ ->
 
             // Obtenim el text de l'element seleccionat a la llista
             val selection = parent.getItemAtPosition(position).toString()
 
-            // Creem un Chip dinàmicament
+            // Dinamically Created Chip
             val chip = Chip(ctx)
             chip.text = selection
             chip.chipIcon = ContextCompat.getDrawable(ctx, R.drawable.ic_baseline_cancel_24)

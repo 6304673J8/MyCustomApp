@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             if (isGranted) {
                 // Permission is granted. Continue the action or workflow in your
                 // app.
-                toast("Now I can use camera :)")
+                toast("Now I can use the camera :P")
                 cameraLauncher.launch()
             } else {
                 // Explain to the user that the feature is unavailable until permission given.

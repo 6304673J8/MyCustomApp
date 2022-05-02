@@ -1,9 +1,12 @@
 package com.example.georgheapp.ui.main.notes
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Typeface
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.preference.PreferenceManager
 import com.example.georgheapp.R
@@ -12,7 +15,9 @@ import com.example.georgheapp.data.Notes
 import com.example.georgheapp.data.Persistence
 import com.example.georgheapp.databinding.FragmentNotesListBinding
 import com.google.android.material.chip.Chip
+import org.w3c.dom.Text
 import kotlin.reflect.safeCast
+
 
 class NotesListActivity : AppCompatActivity() {
     private lateinit var binding: FragmentNotesListBinding
@@ -53,6 +58,7 @@ class NotesListActivity : AppCompatActivity() {
                 NotesList
             )
         )
+
         binding.searchBar.setOnItemClickListener { parent, _, position, _ ->
             // Obtenim el text de l'element seleccionat a la llista
             val selection = parent.getItemAtPosition(position).toString()
@@ -78,6 +84,7 @@ class NotesListActivity : AppCompatActivity() {
     
     override fun onResume() {
         super.onResume()
+
         NotesListAdapter::class.safeCast(binding.notesList.adapter)?.updateOnlyLastClick()
     }
 

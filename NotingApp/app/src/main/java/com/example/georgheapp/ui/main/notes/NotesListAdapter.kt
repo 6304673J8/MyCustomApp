@@ -2,17 +2,21 @@ package com.example.georgheapp.ui.main.notes
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.georgheapp.R
 import com.example.georgheapp.data.Note
 import com.example.georgheapp.data.NoteEditActivity
 import com.example.georgheapp.data.NoteEditActivity.Companion.INTENT_EXTRA_NOTE_ID
+
 
 class NotesListAdapter(val context: Context, val notes: ArrayList<Note>) :
     RecyclerView.Adapter<NotesListAdapter.ViewHolder>() {
@@ -33,13 +37,18 @@ class NotesListAdapter(val context: Context, val notes: ArrayList<Note>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val note = notes[position]
-
+        val test = "#FF0000"
         holder.title.text = note.title
+        //works
+        //holder.title.setTextSize(2, 2F)
         holder.subtitle.text = note.subtitle
+        val color = context.getColor(R.color.ColorAccent)
+//      holder.subtitle.setTextColor(Color.parseColor(test))
+        holder.subtitle.setTextColor(color)
         holder.content.text = note.content
 
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
-        if (prefs.getBoolean("color_particles", true)) {
+        if (prefs.getBoolean("color_notes", true)) {
             val color = when (note.tag) {
                 Note.Tag.NOTE-> R.color.note
                 Note.Tag.REMINDER-> R.color.reminder
