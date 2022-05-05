@@ -35,6 +35,7 @@ class NoteRecyclerViewAdapter(val context: Context, val notes: ArrayList<Note>) 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val note = notes[position]
+        val color = context.getColor(R.color.ColorAccent)
 
         // Set name
         holder.title.text = note.title
@@ -43,15 +44,15 @@ class NoteRecyclerViewAdapter(val context: Context, val notes: ArrayList<Note>) 
 
         // Set color
         // It converts the ID to the properly color and set it to the image
-        val prefs: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-        //if (prefs.getBoolean("colorNotes", true))
-        //    holder.image.setColorFilter(context.getColor(particle.family.color()))
-        //else
-        //    holder.image.setColorFilter(context.getColor(R.color.gray))
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        if (prefs.getBoolean("color_notes", true))
+            holder.title.setTextColor(color)
+        else
+            holder.subtitle.setTextColor(color)
 
         // Set on item click listener
         holder.view.setOnClickListener {
-            // Sabem que es mostrarà "bé" perquè Note és un data class
+            // Note Info
                context.toast(note.toString())
 
             modifiedElement = holder.absoluteAdapterPosition

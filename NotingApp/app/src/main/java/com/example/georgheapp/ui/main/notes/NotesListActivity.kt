@@ -13,21 +13,21 @@ import com.example.georgheapp.R
 import com.example.georgheapp.data.Note
 import com.example.georgheapp.data.Notes
 import com.example.georgheapp.data.Persistence
-import com.example.georgheapp.databinding.FragmentNotesListBinding
+import com.example.georgheapp.databinding.ActivityNotesListBinding
 import com.google.android.material.chip.Chip
 import org.w3c.dom.Text
 import kotlin.reflect.safeCast
 
 
 class NotesListActivity : AppCompatActivity() {
-    private lateinit var binding: FragmentNotesListBinding
+    private lateinit var binding: ActivityNotesListBinding
     private var shownNotes = ArrayList<Note>()
     private val filters = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = FragmentNotesListBinding.inflate(layoutInflater)
+        binding = ActivityNotesListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Read Notes file

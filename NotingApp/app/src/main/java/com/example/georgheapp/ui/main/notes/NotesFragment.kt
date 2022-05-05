@@ -10,13 +10,13 @@ import androidx.fragment.app.Fragment
 import com.example.georgheapp.R
 import com.example.georgheapp.data.Note
 import com.example.georgheapp.data.Notes
-import com.example.georgheapp.databinding.FragmentNotesListBinding
+import com.example.georgheapp.databinding.ActivityNotesListBinding
 import com.google.android.material.chip.Chip
 import kotlin.reflect.safeCast
 
 class NotesFragment : Fragment() {
 
-    private lateinit var binding: FragmentNotesListBinding
+    private lateinit var binding: ActivityNotesListBinding
     private val filters = ArrayList<String>()
     private val notes = ArrayList<Note>().apply { addAll(Notes) }
 
@@ -25,7 +25,7 @@ class NotesFragment : Fragment() {
     ): View {
 
         // Init
-        binding = FragmentNotesListBinding.inflate(inflater)
+        binding = ActivityNotesListBinding.inflate(inflater)
         val retView = binding.root
         val ctx = context ?: return retView.also { activity?.finish() }
 

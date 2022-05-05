@@ -9,9 +9,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.launch
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.RecyclerView
 
 import com.example.georgheapp.R
 import com.example.georgheapp.addNote.AddNoteActivity
+import com.example.georgheapp.data.Note
+import com.example.georgheapp.data.Notes
 import com.example.georgheapp.databinding.ActivityMainBinding
 import com.example.georgheapp.ui.main.notes.NotesListActivity
 import com.example.georgheapp.utils.toast
@@ -20,27 +23,8 @@ import com.google.android.material.snackbar.Snackbar
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
-    private val cameraLauncher =
-        registerForActivityResult(ActivityResultContracts.TakePicturePreview()) { bitmapThumbnail ->
-            // Serà null si l'usuari no fa cap foto
-            if (bitmapThumbnail != null)
-                binding.standardBackgroundImage.setImageBitmap(bitmapThumbnail)
-        }
-
-    private val requestPermissionLauncher =
-        registerForActivityResult(ActivityResultContracts.RequestPermission())
-        { isGranted: Boolean ->
-            if (isGranted) {
-                // Permission is granted. Continue the action or workflow in your
-                // app.
-                toast("Now I can use the camera :P")
-                cameraLauncher.launch()
-            } else {
-                // Explain to the user that the feature is unavailable until permission given.
-                toast("User has denied the permission :(")
-            }
-        }
+    private lateinit var notesRecyclerView: RecyclerView
+    private lateinit var notesList : ArrayList<Notes>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,4 +82,25 @@ class MainActivity : AppCompatActivity() {
         val shareIntent = Intent.createChooser(sendIntent, null)
         startActivity(shareIntent)
     }
+
+    private val cameraLauncher =
+        registerForActivityResult(ActivityResultContracts.TakePicturePreview()) { bitmapThumbnail ->
+            // Null If User Photo = False
+            if (bitmapThumbnail != null)
+                binding.standardBackgroundImage.setImageBitmap(bitmapThumbnail)
+        }
+
+    private val requestPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission())
+        { isGranted: Boolean ->
+            if (isGranted) {
+                // Permission is granted. Continue the action or workflow in your
+                // app.
+                toast("Now I can use the camera :P")
+                cameraLauncher.launch()
+            } else {
+                // Explain to the user that the feature is unavailable until permission given.
+                toast("User has denied the permission :(")
+            }
+        }
 }

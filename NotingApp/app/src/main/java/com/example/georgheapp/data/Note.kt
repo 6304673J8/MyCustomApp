@@ -5,11 +5,10 @@ import java.io.Serializable
 data class Note(
     var title: String,
     var tag: Tag,
-    var subtitle: String,
-    var content: String
-    //var date_time: String
+    var subtitle: String? = null,
+    var content: String? = null,
+    var date_time: Long? = null
 ): Serializable {
-
     enum class Tag {
         NOTE, REMINDER
     }

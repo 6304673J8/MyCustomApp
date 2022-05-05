@@ -43,7 +43,7 @@ class NotesListAdapter(val context: Context, val notes: ArrayList<Note>) :
         //holder.title.setTextSize(2, 2F)
         holder.subtitle.text = note.subtitle
         val color = context.getColor(R.color.ColorAccent)
-//      holder.subtitle.setTextColor(Color.parseColor(test))
+        //holder.subtitle.setTextColor(Color.parseColor(test))
         holder.subtitle.setTextColor(color)
         holder.content.text = note.content
 
@@ -53,7 +53,6 @@ class NotesListAdapter(val context: Context, val notes: ArrayList<Note>) :
                 Note.Tag.NOTE-> R.color.note
                 Note.Tag.REMINDER-> R.color.reminder
             }
-
             //holder.image.setColorFilter(context.getColor(color))
         }
 
