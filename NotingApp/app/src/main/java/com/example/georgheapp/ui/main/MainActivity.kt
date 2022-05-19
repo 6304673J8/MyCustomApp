@@ -32,6 +32,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
+
         //When Button Pressed Do Something
         binding.settingsFragment.setOnClickListener { view ->
             showSnackbar(view, R.string.settingsFragment)
