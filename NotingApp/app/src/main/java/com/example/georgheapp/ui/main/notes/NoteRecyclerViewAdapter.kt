@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.georgheapp.R
 import com.example.georgheapp.data.Note
 import com.example.georgheapp.data.NoteEditActivity
-import com.example.georgheapp.data.NoteEditActivity.Companion.INTENT_EXTRA_NOTE_ID
+import com.example.georgheapp.data.NoteEditActivity.Companion.INTENT_EXTRA_NOTE
 import com.example.georgheapp.databinding.ItemListNoteBinding
 import com.example.georgheapp.utils.toast
 
@@ -58,7 +58,7 @@ class NoteRecyclerViewAdapter(val context: Context, val notes: ArrayList<Note>) 
             modifiedElement = holder.absoluteAdapterPosition
 
             val intent = Intent(context, NoteEditActivity::class.java)
-            intent.putExtra(INTENT_EXTRA_NOTE_ID, modifiedElement)
+            intent.putExtra(INTENT_EXTRA_NOTE, modifiedElement)
             context.startActivity(intent)
         }
     }

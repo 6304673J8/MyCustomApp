@@ -1,7 +1,7 @@
 package com.example.georgheapp.data
 
 object Notes : ArrayList<Note>() {
-    const val NOTES_FILENAME = "notesInternData.dat"
+    const val NOTES_FILENAME = "notesInnerData.dat"
 
     fun testerResetNotes() {
         clear()

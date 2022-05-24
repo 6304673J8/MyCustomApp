@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.georgheapp.R
 import com.example.georgheapp.data.Note
 import com.example.georgheapp.data.NoteEditActivity
-import com.example.georgheapp.data.NoteEditActivity.Companion.INTENT_EXTRA_NOTE_ID
+import com.example.georgheapp.data.NoteEditActivity.Companion.INTENT_EXTRA_NOTE
 import com.example.georgheapp.databinding.ItemListNoteBinding
 
 class NoteRecyclerViewAdapter(val context: Context, val notes: ArrayList<Note>) :
@@ -65,7 +65,7 @@ class NoteRecyclerViewAdapter(val context: Context, val notes: ArrayList<Note>) 
 
         holder.view.setOnClickListener {
             val intent = Intent(context, NoteEditActivity::class.java)
-            intent.putExtra(INTENT_EXTRA_NOTE_ID, modifiedNote)
+            intent.putExtra(INTENT_EXTRA_NOTE, modifiedNote)
             context.startActivity(intent)
         }
     }

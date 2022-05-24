@@ -19,7 +19,7 @@ import kotlin.reflect.safeCast
 
 class NotesListActivity : AppCompatActivity() {
     private lateinit var binding: ActivityNotesListBinding
-    private var shownNotes = ArrayList<Note>()
+    private var shownNotes = HashSet<Note>()
     private var filter = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,9 +44,10 @@ class NotesListActivity : AppCompatActivity() {
 
 
         // Implement views
-        shownNotes = ArrayList(Notes)
+        shownNotes = HashSet(Notes)
         binding.notesList.adapter = NotesListAdapter(this, shownNotes)
 
+        //Chip Behaviour -- May Be Deleted
         /*val NotesList = Notes.map { it.title } + Note.Tag.values().map { it.name } +
                 Notes.map { it.subtitle } + Notes.map { it.content }*/
 
@@ -92,9 +93,9 @@ class NotesListActivity : AppCompatActivity() {
         shownNotes.addAll(Notes.filter { it.content?.contains(filter) == true })
         shownNotes.addAll(Notes.filter { it.tag.name.contains(filter) })
 
-//        if (shownNotes.isEmpty()) {
-//            shownNotes.addAll(Notes)
-//        }
+//      if (shownNotes.isEmpty()) {
+//          shownNotes.addAll(Notes)
+//      }
 
         binding.notesList.adapter?.notifyDataSetChanged()
     }

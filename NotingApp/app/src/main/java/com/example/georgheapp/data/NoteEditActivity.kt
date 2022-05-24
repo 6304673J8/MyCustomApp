@@ -4,12 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.Typeface
 import android.os.Bundle
-import android.util.TypedValue
-import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
 import com.example.georgheapp.R
@@ -19,11 +15,11 @@ import java.io.ObjectOutputStream
 
 class NoteEditActivity : AppCompatActivity(){
     companion object{
-        const val INTENT_EXTRA_NOTE_ID = "INTENT_EXTRA_NOTE_ID"
+        const val INTENT_EXTRA_NOTE = "INTENT_EXTRA_NOTE_ID"
     }
 
     private lateinit var binding: ActivityNoteEditBinding
-    private var note: Note? = null
+    private lateinit var note: Note
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,23 +35,22 @@ class NoteEditActivity : AppCompatActivity(){
             acceptAddNote()
         }
 
-        val noteId = intent.extras?.getInt(INTENT_EXTRA_NOTE_ID)
+        note = intent.extras?.getSerializable(INTENT_EXTRA_NOTE) as? Note
             ?: return // leave it empty if no extra passed
-        note = Notes[noteId]
         fillNotesInfo()
     }
 
-    //override fun onPause() {
-   //     super.onPause()
+    override fun onPause() {
+        super.onPause()
 
-        // Update class with user input data
-        /*note?.title = binding.noteTitleInput.text.toString()
+        //Update class with user input data
+        note?.title = binding.noteTitleInput.text.toString()
         note?.subtitle = binding.noteSubtitleInput.text.toString()
         note?.content = binding.noteContentInput.text.toString()
         //note?.date_time = binding.noteDateInput.text.toString()*/
 
         //Here was the new test
-    //}
+    }
 
     private fun fillNotesInfo() {
         note?.let { p ->

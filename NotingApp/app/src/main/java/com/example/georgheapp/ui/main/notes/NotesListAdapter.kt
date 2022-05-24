@@ -15,10 +15,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.georgheapp.R
 import com.example.georgheapp.data.Note
 import com.example.georgheapp.data.NoteEditActivity
-import com.example.georgheapp.data.NoteEditActivity.Companion.INTENT_EXTRA_NOTE_ID
+import com.example.georgheapp.data.NoteEditActivity.Companion.INTENT_EXTRA_NOTE
 
 
-class NotesListAdapter(val context: Context, val notes: ArrayList<Note>) :
+class NotesListAdapter(val context: Context, val notes: HashSet<Note>) :
     RecyclerView.Adapter<NotesListAdapter.ViewHolder>() {
 
     private var lastClick: Int? = null
@@ -36,7 +36,7 @@ class NotesListAdapter(val context: Context, val notes: ArrayList<Note>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val note = notes[position]
+        val note = notes.toList()[position]
         val test = "#FF0000"
         holder.title.text = note.title
         //works
@@ -49,17 +49,17 @@ class NotesListAdapter(val context: Context, val notes: ArrayList<Note>) :
 
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
         if (prefs.getBoolean("color_notes", true)) {
-            val color = when (note.tag) {
-                Note.Tag.NOTE-> R.color.note
-                Note.Tag.REMINDER-> R.color.reminder
-            }
+//            val color = when (note.tag) {
+//                Note.Tag.NOTE-> R.color.note
+//                Note.Tag.REMINDER-> R.color.reminder
+//            }
             //holder.image.setColorFilter(context.getColor(color))
         }
 
         holder.view.setOnClickListener {
             lastClick = position
             val intent = Intent(context, NoteEditActivity::class.java)
-            intent.putExtra(INTENT_EXTRA_NOTE_ID, position)
+            intent.putExtra(INTENT_EXTRA_NOTE, note)
             context.startActivity(intent)
         }
     }
