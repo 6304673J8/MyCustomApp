@@ -1,18 +1,18 @@
 package com.example.georgheapp.data
 
 object Notes : ArrayList<Note>() {
-    const val NOTES_FILENAME = "notesInternalData.dat"
+    const val NOTES_FILENAME = "notesMainlData.dat"
 
     fun testerResetNotes() {
         clear()
 
-        add(Note("Test0", Note.Tag.NOTE,"zeroed", "-1sggsgsgvbvxbcnfnfnnfngfn/3"))
-        add(Note("Test0arm", Note.Tag.NOTE,"armed", "-1/gfwseggsggs3"))
-        add(Note("Test0p", Note.Tag.NOTE,"pi", "-1qegfg/3"))
-
-        add(Note("Test0wn", Note.Tag.NOTE,"Oop", "-1dasdawq/3"))
-        add(Note("Test0range", Note.Tag.NOTE,"Deranged", "-1sad/3"))
-        add(Note("Test0ttom", Note.Tag.NOTE,"Bottom", "-1sdasdadad/3"))
+        add(Note("Dia 1: ", Note.Tag.NOTE,"Unreal", "Market Place Goes Brr"))
+        add(Note("Dia 2:", Note.Tag.NOTE,"Godot", "VR Goes Brr"))
+        add(Note("Dia 3:", Note.Tag.NOTE,"Cobol", "Capitalism Goes Brr"))
+        add(Note("Dia 4:", Note.Tag.NOTE,"Unity", "Poly Art Goes Brr"))
+        add(Note("Dia 5:", Note.Tag.NOTE,"RPG Maker", "Pixel Art Goes Brr"))
+        add(Note("Dia 6:", Note.Tag.NOTE,"CPP Class", "Game Industry Goes Brr"))
+        add(Note("Dia 7:", Note.Tag.NOTE,"Kotlin Class", "App Development Goes Brr"))
 
     }
 }

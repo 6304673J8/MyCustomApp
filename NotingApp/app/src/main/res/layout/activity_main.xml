@@ -5,22 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.MainActivity">
-    <!--<fragment
-        android:id="@+id/nav_fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@id/bottom_app_bar"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav_bottom_graph" />-->
-    <!--<data>
-        <variable
-            name="hasPlantings"
-            type="boolean" />
-    </data>-->
+
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
@@ -31,103 +16,56 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <!-- body of constraint layout -->
-            <!-- 1 BG Customizable & Linear Progress Indicator-->
-            <FrameLayout
-                android:id="@+id/frame_container"
-                android:layout_width="match_parent"
-                android:layout_height="118dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/standardBackgroundImage"
+            <TextView
+                    android:id="@+id/listTitle"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clickable="true"
-                    android:contentDescription="@string/bg_changeBG"
-                    android:focusable="true"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/standard_background"></ImageView>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:orientation="vertical">
+                    android:fontFamily="@font/manrope_bold"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:text="@string/notes"
+                    android:textColor="@color/ColorDarkGreenNote"
+                    android:textSize="@dimen/_20ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/bg_welcome_user"
-                        android:textColor="#FFFFFF"
-                        android:textSize="30sp" />
+            <AutoCompleteTextView
+                    android:id="@+id/searchBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/background"
+                    android:drawableLeft="?android:attr/actionModeWebSearchDrawable"
+                    android:drawablePadding ="10dp"
+                    android:minHeight="35dp"
+                    android:queryHint="@string/search_file"
+                    android:theme="@style/search"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/listTitle" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/bg_welcome_date"
-                        android:textColor="@android:color/holo_orange_dark"
-                        android:textSize="30sp" />
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipsGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@+id/searchBar"
+                app:layout_constraintStart_toStartOf="@+id/searchBar"
+                app:layout_constraintTop_toBottomOf="@+id/searchBar"></com.google.android.material.chip.ChipGroup>
 
-                </LinearLayout>
-            </FrameLayout>
-
-            <com.google.android.material.progressindicator.LinearProgressIndicator
-                android:id="@+id/loadingMainBar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_anchor="@+id/frame_container"
-                app:layout_anchorGravity="bottom|center"
-                app:layout_constraintTop_toBottomOf="@+id/frame_container" />
-            <!-- 2 Lists Note -->
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintTop_toBottomOf="@id/loadingMainBar">
-
-                <androidx.recyclerview.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/notes_list"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clipToPadding="false"
-                    android:layout_marginStart="@dimen/card_side_margin"
-                    android:layout_marginEnd="@dimen/card_side_margin"
-                    android:layout_marginTop="@dimen/margin_normal"/>
-                    <!--app:isGone="@{!hasPlantings}"
-                    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-                    app:spanCount="@integer/grid_columns"/>
-                    tools:listitem="@layout/list_item_note_memo"-->
+                    android:layout_height="0dp"
+                    app:layoutManager="LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/chipsGroup"
+                    tools:listitem="@layout/item_list_note"></androidx.recyclerview.widget.RecyclerView>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <!--app:isGone="@{hasPlantings}"-->
-
-                    <TextView
-                        android:id="@+id/empty_garden"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?attr/textAppearanceHeadline5" />
-                        <!--android:text="@string/garden_empty"-->
-
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/add_plant"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="?attr/colorPrimary"
-                        app:backgroundTint="?attr/colorOnPrimary"
-                        />
-                        <!--android:text="@string/add_plant"-->
-                        <!--app:shapeAppearance="@style/ShapeAppearance.Sunflower.Button.Add"-->
-
-                </LinearLayout>
-
-            </FrameLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.bottomappbar.BottomAppBar
@@ -141,7 +79,6 @@
         app:fabCradleMargin="@dimen/_8sdp"
         app:fabCradleRoundedCornerRadius="@dimen/_32sdp"
         app:hideOnScroll="true">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">

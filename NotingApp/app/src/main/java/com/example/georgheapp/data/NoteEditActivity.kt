@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
 import com.example.georgheapp.R
 import com.example.georgheapp.databinding.ActivityNoteEditBinding
+import com.example.georgheapp.utils.toast
+import com.google.android.material.snackbar.Snackbar
 import java.io.FileOutputStream
 import java.io.ObjectOutputStream
 
@@ -37,6 +39,8 @@ class NoteEditActivity : AppCompatActivity(){
 
         findViewById<ImageView>(R.id.imgDone).setOnClickListener {
             acceptAddNote()
+            toast("Note Edited")
+
         }
 
         val noteId = intent.extras?.getInt(INTENT_EXTRA_NOTE_ID)
@@ -56,6 +60,9 @@ class NoteEditActivity : AppCompatActivity(){
 
         //Here was the new test
     //}
+    private fun showSnackbar(view: View, message: Int) {
+        Snackbar.make(view, message, Snackbar.LENGTH_SHORT).show()
+    }
 
     private fun fillNotesInfo() {
         note?.let { p ->
@@ -86,21 +93,5 @@ class NoteEditActivity : AppCompatActivity(){
                 it.writeObject(Notes)
             }
         }
-    }
-
-    fun a() {
-        // Manera 1
-        val sp: SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-        val editor = sp.edit()
-        //editor.putStringSet()
-        editor.apply()
-
-
-        // Manera 2
-        val fos: FileOutputStream = openFileOutput("fileName", Context.MODE_PRIVATE)
-        val os = ObjectOutputStream(fos)
-        os.writeObject(this)
-        os.close()
-        fos.close()
     }
 }

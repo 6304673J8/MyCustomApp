@@ -16,12 +16,16 @@ import com.example.georgheapp.R
 import com.example.georgheapp.data.Note
 import com.example.georgheapp.data.NoteEditActivity
 import com.example.georgheapp.data.NoteEditActivity.Companion.INTENT_EXTRA_NOTE_ID
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class NotesListAdapter(val context: Context, val notes: ArrayList<Note>) :
     RecyclerView.Adapter<NotesListAdapter.ViewHolder>() {
 
     private var lastClick: Int? = null
+    var currentDate:String? = null
 
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.noteTitle)
@@ -37,7 +41,8 @@ class NotesListAdapter(val context: Context, val notes: ArrayList<Note>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val note = notes[position]
-        val test = "#FF0000"
+        val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
+        val testColor = "#FF0000"
         holder.title.text = note.title
         //works
         //holder.title.setTextSize(2, 2F)
@@ -47,15 +52,8 @@ class NotesListAdapter(val context: Context, val notes: ArrayList<Note>) :
         holder.subtitle.setTextColor(color)
         holder.content.text = note.content
 
-        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
-        if (prefs.getBoolean("color_notes", true)) {
-            val color = when (note.tag) {
-                Note.Tag.NOTE-> R.color.note
-                Note.Tag.REMINDER-> R.color.reminder
-            }
-
-            //holder.image.setColorFilter(context.getColor(color))
-        }
+        //Date Save
+        currentDate = sdf.format(Date())
 
         holder.view.setOnClickListener {
             lastClick = position

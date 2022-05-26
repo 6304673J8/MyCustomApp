@@ -37,7 +37,7 @@
         app:tint="@color/ColorDarkGreenNote" />
 
     <EditText
-        android:id="@+id/add_note_title"
+        android:id="@+id/AddNoteTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/_10sdp"
@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/_10sdp"
-        app:layout_constraintTop_toBottomOf="@id/add_note_title"
+        app:layout_constraintTop_toBottomOf="@id/AddNoteTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="horizontal">
@@ -70,7 +70,7 @@
             android:layout_marginStart="@dimen/_5sdp"
             android:background="@color/purple_700"/>
         <EditText
-            android:id="@+id/add_note_subtitle"
+            android:id="@+id/AddNoteSubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/_10sdp"
@@ -86,7 +86,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/add_note_content"
+        android:id="@+id/AddNoteContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/_10sdp"
@@ -108,6 +108,6 @@
         android:layout_marginStart="331dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_note_content" />
+        app:layout_constraintTop_toBottomOf="@+id/AddNoteContent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
